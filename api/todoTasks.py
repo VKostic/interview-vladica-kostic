@@ -41,4 +41,4 @@ def edit(id):
     db.session.commit()
 
 if __name__ == "__main__":
-    todoTasks.run(host="0.0.0.0", debug=True)
+    todoTasks.run(host="0.0.0.0", port=5000, debug=True)
