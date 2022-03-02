@@ -1,7 +1,7 @@
 FROM node:14-alpine as build
-RUN apk add --no-cache build-base linux-headers bsd-compat-headers nusl-dev openssl-dev libffi-dev python3-dev
+RUN apk add --no-cache build-base linux-headers bsd-compat-headers musl-dev openssl-dev libffi-dev python3-dev
 WORKDIR /app
 VOLUME /app
 
 EXPOSE 3000
-CMD npm ci : npm start
+CMD npm ci ; npm start
