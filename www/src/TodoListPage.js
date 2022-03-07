@@ -8,7 +8,7 @@ export const TodoListPage = () => {
     const [addItem, setAddItem] = useState('')
 
     useEffect(() => {
-        fetch('/api').then(response => {
+        fetch('/api/').then(response => {
             if(response.ok){
                 return response.json()
             }
@@ -34,7 +34,7 @@ export const TodoListPage = () => {
     }
 
     const getLatestItems = () => {
-        fetch('/api').then(response => {
+        fetch('/api/').then(response => {
             if(response.ok){
                 return response.json()
             }
