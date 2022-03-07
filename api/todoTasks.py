@@ -18,7 +18,7 @@ def todo_serializer(item):
         'content': item.content
     }
     
-@todoTasks.route('/api', methods=['GET'])
+@todoTasks.route('/api/', methods=['GET'])
 def index():
     return jsonify([*map(todo_serializer, TodoTasks.query.all())])
 
@@ -29,6 +29,7 @@ def newItem():
 
     db.session.add(todoTasks)
     db.session.commit()
+    return
 
 @todoTasks.route('/api/<int:id>')
 def view(id):
@@ -39,6 +40,7 @@ def edit(id):
     request_item = json.loads(request.data)
     TodoTasks.query.filter_by(id=request_item['id']).update(dict(content=request_item['content']))
     db.session.commit()
+    return
 
 if __name__ == "__main__":
     todoTasks.run(host="0.0.0.0", port=5000, debug=True)
